@@ -1,0 +1,104 @@
+//Helpers
+@mixin clear-appearance {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+@mixin placeholder {
+    ::-webkit-input-placeholder {
+        @content;
+    }
+    :-moz-placeholder {
+        @content;
+    }
+    ::-moz-placeholder {
+        @content;
+    }
+    :-ms-input-placeholder {
+        @content;
+    }
+}
+
+//Transition
+@mixin transition($prop...) {
+    -webkit-transition: $prop;
+    -moz-transition: $prop;
+    transition: $prop;
+}
+
+//Transform
+@mixin transform($prop...) {
+    -webkit-transform: $prop;
+    -moz-transform: $prop;
+    -ms-transform: $prop;
+    transform: $prop;
+}
+
+@mixin gpu {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+
+
+//Media Queries
+@mixin sm-screen {
+    @media only screen and (max-width: 768px) {
+        @content;
+    }
+}
+@mixin xs-screen {
+    @media only screen and (max-width: 320px) {
+        @content;
+    }
+}
+
+//RTL styling
+@mixin rtl($prop, $value) {
+    html[dir=ltr] & {
+        #{$prop}: $value;
+    }
+
+    html[dir=rtl] & {
+        @if $value == left {
+            #{$prop}: right;
+        }
+        @else if $value == right {
+            #{$prop}: left;
+        }
+        @else if $prop == right {
+            left: $value;
+        }
+        @else if $prop == left {
+            right: $value;
+        }
+        @else if $prop == margin-left {
+            margin-right: $value;
+        }
+        @else if $prop == margin-right {
+            margin-left: $value;
+        }
+        @else if $prop == padding-left {
+            padding-right: $value;
+        }
+        @else if $prop == padding-right {
+            padding-left: $value;
+        }
+        @else if $prop == border-right {
+            border-left: $value;
+        }
+        @else if $prop == border-left {
+            border-right: $value;
+        }
+        @else {
+            #{$prop}: $value;
+        }
+    }
+}
+@mixin rtl-custom {
+    html[dir=rtl] & {
+        @content;
+    }
+}
