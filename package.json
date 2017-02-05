@@ -1,0 +1,17 @@
+{
+  "name": "SASSplate",
+  "version": "1.0.0",
+  "description": "HTML5 boilerplate with minimalistic SASS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maximmis/SASSplate.git"
+  },
+  "keywords": [
+    "HTML5",
+    "SASS",
+    "bolierplate"
+  ],
+  "author": "Max Misnikov (https://github.com/maximmis)",
+  "license": "MIT",
+  "homepage": "https://github.com/maximmis/SASSplate"
+}
