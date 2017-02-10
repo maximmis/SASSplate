@@ -18,3 +18,8 @@ HTML5 boilerplate + minimalistic SASS
 
 ### [Animsition](http://git.blivesta.com/animsition/)
 **Jquery:** `https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js`
+
+### [SVGInjector](https://github.com/iconic/SVGInjector)
+**JS:** `https://cdnjs.cloudflare.com/ajax/libs/svg-injector/1.1.3/svg-injector.min.js`
+
+
