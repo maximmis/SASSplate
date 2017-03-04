@@ -20,6 +20,18 @@
     }
 }
 
+@mixin truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+//Box-shadow
+@mixin box-shadow ($radius: 4px, $offset: 0, $opacity: .5) {
+    box-shadow: 0 0 $radius $offset rgba(0,0,0, $opacity);
+}
+
 //Columns
 @mixin columns($prop...) {
     -webkit-columns: $prop;
@@ -27,17 +39,20 @@
     columns: $prop;
 }
 
+//Em calculator
+@function em-calc($value) {
+    @return ($value / $em-size) * 1em;
+}
+
 //Transition
 @mixin transition($prop...) {
     -webkit-transition: $prop;
-    -moz-transition: $prop;
     transition: $prop;
 }
 
 //Transform
 @mixin transform($prop...) {
     -webkit-transform: $prop;
-    -moz-transform: $prop;
     -ms-transform: $prop;
     transform: $prop;
 }
