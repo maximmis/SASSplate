@@ -1,125 +1,135 @@
-//Helpers
-@mixin clear-appearance {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-@mixin placeholder {
-    ::-webkit-input-placeholder {
-        @content;
-    }
-    :-moz-placeholder {
-        @content;
-    }
-    ::-moz-placeholder {
-        @content;
-    }
-    :-ms-input-placeholder {
-        @content;
-    }
-}
-
-@mixin truncate {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-
-//Box-shadow
-@mixin box-shadow ($radius: 4px, $offset: 0, $opacity: .5) {
-    box-shadow: 0 0 $radius $offset rgba(0,0,0, $opacity);
-}
-
-//Columns
-@mixin columns($prop...) {
-    -webkit-columns: $prop;
-    -moz-columns: $prop;
-    columns: $prop;
-}
-
-//Em calculator
-@function em-calc($value) {
-    @return ($value / $em-size) * 1em;
-}
-
 //Transition
 @mixin transition($prop...) {
-    -webkit-transition: $prop;
-    transition: $prop;
+  -webkit-transition: $prop;
+  transition: $prop;
 }
+
 
 //Transform
 @mixin transform($prop...) {
-    -webkit-transform: $prop;
-    -ms-transform: $prop;
-    transform: $prop;
-}
-
-@mixin gpu {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+  -webkit-transform: $prop;
+  -ms-transform: $prop;
+  transform: $prop;
 }
 
 
+//Animation
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
 
-//Media Queries
+@mixin animation($prop...) {
+  -webkit-animation: $prop;
+  -webkit-animation-fill-mode: both;
+  animation: $prop;
+  animation-fill-mode: both;
+}
+
+
+//Em calculator
+@function em-calc($value) {
+  @return ($value / $em-size) * 1em;
+}
+
+
+//Media queries
 @mixin sm-screen {
-    @media only screen and (max-width: 768px) {
-        @content;
-    }
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
 }
+
 @mixin xs-screen {
-    @media only screen and (max-width: 320px) {
-        @content;
-    }
+  @media only screen and (max-width: 320px) {
+    @content;
+  }
 }
+
 
 //RTL styling
 @mixin rtl($prop, $value) {
-    html[dir=ltr] & {
-        #{$prop}: $value;
-    }
+  html[dir=ltr] & {
+    #{$prop}: $value;
+  }
 
-    html[dir=rtl] & {
-        @if $value == left {
-            #{$prop}: right;
-        }
-        @else if $value == right {
-            #{$prop}: left;
-        }
-        @else if $prop == right {
-            left: $value;
-        }
-        @else if $prop == left {
-            right: $value;
-        }
-        @else if $prop == margin-left {
-            margin-right: $value;
-        }
-        @else if $prop == margin-right {
-            margin-left: $value;
-        }
-        @else if $prop == padding-left {
-            padding-right: $value;
-        }
-        @else if $prop == padding-right {
-            padding-left: $value;
-        }
-        @else if $prop == border-right {
-            border-left: $value;
-        }
-        @else if $prop == border-left {
-            border-right: $value;
-        }
-        @else {
-            #{$prop}: $value;
-        }
+  html[dir=rtl] & {
+    @if $value == left {
+      #{$prop}: right;
+    } @else if $value == right {
+      #{$prop}: left;
+    } @else if $prop == right {
+      left: $value;
+    } @else if $prop == left {
+      right: $value;
+    } @else if $prop == margin-left {
+      margin-right: $value;
+    } @else if $prop == margin-right {
+      margin-left: $value;
+    } @else if $prop == padding-left {
+      padding-right: $value;
+    } @else if $prop == padding-right {
+      padding-left: $value;
+    } @else if $prop == border-right {
+      border-left: $value;
+    } @else if $prop == border-left {
+      border-right: $value;
+    } @else {
+      #{$prop}: $value;
     }
+  }
 }
+
 @mixin rtl-custom {
-    html[dir=rtl] & {
-        @content;
-    }
+  html[dir=rtl] & {
+    @content;
+  }
+}
+
+
+//Helpers
+@mixin box-shadow($radius: 4px, $offset: 0, $opacity: .5) {
+  box-shadow: 0 0 $radius $offset rgba(0, 0, 0, $opacity);
+}
+
+@mixin clear-appearance {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {
+    @content;
+  }
+  :-moz-placeholder {
+    @content;
+  }
+  ::-moz-placeholder {
+    @content;
+  }
+  :-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin columns($prop...) {
+  -webkit-columns: $prop;
+  -moz-columns: $prop;
+  columns: $prop;
+}
+
+@mixin gpu {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
