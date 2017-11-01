@@ -1,9 +1,10 @@
 // Breakpoints
-$sm-screen: 750px !default;
-$xs-screen: 340px !default;
+$md-screen: 750px !default;
+$lg-screen: 980px !default;
 
 
 // Colors
+$gray-color: #b4b4b4;
 $light-blue-color: #cfebf9;
 $blue-color: #127cbf;
 $dark-blue-color: #0c527f;
@@ -13,8 +14,16 @@ $purple-color: #553877;
 $em-size: 16px;
 $font-family: "Roboto", sans-serif !default;
 
-// Grid Variables
+$text-small: em-calc(14px);
+$text-body: em-calc(16px);
+$text-title: em-calc(20px);
+
+// Grid variables
 $container-width: 1180px !default;
 
 // Misc
 $border-radius: 4px !default;
+
+// Element declarations
+$header-height: 60px;
+$footer-height: 80px;

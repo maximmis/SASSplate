@@ -1,0 +1,35 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: $font-family;
+}
+
+.content-wrapper {
+    margin: 0 auto;
+    max-width: $container-width;
+    padding: 0 20px;
+    
+    &.full-height {
+        min-height: calc(100vh - #{$header-height + $footer-height});
+    }
+}
+
+.dummy-content {
+    padding: 60px 0 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: $text-title;
+}
+
+p {
+    font-size: $text-body;
+}
+
+.disclaimer {
+    color: $gray-color;
+    font-size: $text-small;
+}

@@ -4,14 +4,12 @@
   transition: $prop;
 }
 
-
 //Transform
 @mixin transform($prop...) {
   -webkit-transform: $prop;
   -ms-transform: $prop;
   transform: $prop;
 }
-
 
 //Animation
 @mixin keyframes($animation-name) {
@@ -30,26 +28,23 @@
   animation-fill-mode: both;
 }
 
-
 //Em calculator
 @function em-calc($value) {
   @return ($value / $em-size) * 1em;
 }
 
-
 //Media queries
-@mixin sm-screen {
-  @media only screen and (max-width: 768px) {
+@mixin md-screen {
+  @media only screen and (min-width: $md-screen) {
     @content;
   }
 }
 
-@mixin xs-screen {
-  @media only screen and (max-width: 320px) {
+@mixin lg-screen {
+  @media only screen and (min-width: $lg-screen) {
     @content;
   }
 }
-
 
 //RTL styling
 @mixin rtl($prop, $value) {
@@ -89,7 +84,6 @@
     @content;
   }
 }
-
 
 //Helpers
 @mixin box-shadow($radius: 4px, $offset: 0, $opacity: .5) {
